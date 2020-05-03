@@ -18,6 +18,9 @@ public class setupConfig {
         plugin.getConfig().set("NPCAntiAura.Main.Proticollib", false);
         plugin.getConfig().set("NPCAntiAura.BotSettings.Name", "semdej");
         plugin.getConfig().set("NPCAntiAura.BotSettings.SkinName", "semdej");
+        plugin.getConfig().set("NPCAntiAura.BotSettings.Radius", 1.5);
+        plugin.getConfig().set("NPCAntiAura.BotSettings.Speed", 1);
+        plugin.getConfig().set("NPCAntiAura.BotSettings.AmountOfSeconds", 5);
         plugin.getConfig().set("NPCAntiAura.BotSettings.SetInvisible", true);
         plugin.getConfig().set("NPCAntiAura.BotSettings.UseArmour", true);
         plugin.getConfig().set("NPCAntiAura.BotSettings.RandomSwing", true);
