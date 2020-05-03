@@ -3,14 +3,18 @@ package com.Semdej.NPCAntiAura;
 import com.Semdej.NPCAntiAura.Commands.botCommand;
 import com.Semdej.NPCAntiAura.Config.setupConfig;
 import com.Semdej.NPCAntiAura.Events.botHitEvent;
-import com.Semdej.NPCAntiAura.Holders.arrayListHolder;
-import com.Semdej.NPCAntiAura.Holders.hashMapHolder;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class Main extends JavaPlugin implements Listener {
+
+    public HashMap<UUID, UUID> playerBot;
+    public HashMap<UUID, Integer> hitBot;
+    public ArrayList<UUID> allNPCBots;
 
     @Override
     public void onEnable() {
@@ -36,14 +40,12 @@ public class Main extends JavaPlugin implements Listener {
     private void configuration() {
         getConfig().options().copyDefaults(true);
         saveConfig();
-        if (!new File(this.getDataFolder(), "config.yml").exists()) {
-            saveResource("config.yml", false);
-            new setupConfig(this).setupConfigs();
-        }
+        new setupConfig(this).setupConfigs();
     }
 
     private void loadVariableHolders(){
-        new hashMapHolder().loadHashMaps();
-        new arrayListHolder().loadArrayLists();
+        playerBot = new HashMap<>();
+        hitBot = new HashMap<>();
+        allNPCBots = new ArrayList<>();
     }
 }

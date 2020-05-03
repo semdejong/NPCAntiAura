@@ -20,7 +20,7 @@ public class punishHandler {
         if(config.punishNotify){
             for (Player p : Bukkit.getServer().getOnlinePlayers()){
                 if(p.hasPermission("NAA.Log")){
-                    p.sendMessage("" + color.colorTranslate(Prefix) + ChatColor.RED + player.getName()  +ChatColor.GREEN + " is using " + ChatColor.BOLD + ChatColor.UNDERLINE + ChatColor.GOLD + hackType + ChatColor.RED + "!");
+                    p.sendMessage("" + color.colorTranslate(Prefix) +" "+ ChatColor.RED + player.getName()  +ChatColor.GREEN + " is using " + ChatColor.BOLD + ChatColor.UNDERLINE + ChatColor.GOLD + hackType + ChatColor.RED + "!");
                 }
             }
         }

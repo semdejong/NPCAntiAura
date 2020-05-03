@@ -4,6 +4,7 @@ import com.Semdej.NPCAntiAura.Main;
 import com.Semdej.NPCAntiAura.Math.circularCoordinatesMath;
 import com.Semdej.NPCAntiAura.Math.timeCalculator;
 import net.citizensnpcs.api.npc.NPC;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerTeleportEvent;
@@ -11,7 +12,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class botMovement {
 
-    private circularCoordinatesMath coordinates;
+    circularCoordinatesMath coordinates = new circularCoordinatesMath();
+    timeCalculator t = new timeCalculator();
 
     private Main plugin;
 
@@ -20,41 +22,40 @@ public class botMovement {
     }
 
 
-    public void botM(Player killAuraHacker, NPC bot, double radius, long speed, double time,  boolean ccw){
+    public void botM(Player killAuraHacker, NPC bot, double radius, long speed, double time, boolean ccw){
 
         new BukkitRunnable() {
 
-            double radial = 1;
+            double degree = 1;
 
-            double countdown = new timeCalculator().seconds(speed, time);
-
+            double countdown = t.seconds(speed, time);
 
             @Override
             public void run() {
 
                 if (countdown <= 0 || !killAuraHacker.isOnline()) { //countdown is over or player left the server, just two reasons to exit
 
-                    //Early exit
-
-                    //Set the amount of hit to 0.
+                    new disposeBot(plugin).endOfBot(killAuraHacker, bot);
 
                     this.cancel(); //cancel the repeating task
                     return; //exit the method
 
                 } else {
 
-                    double x = coordinates.X(radial, radius, ccw);
+                    double x = coordinates.X(Math.toRadians(degree), radius, false);
 
-                    double y = coordinates.Y(radial, radius, ccw);
+                    double y = coordinates.Y(Math.toRadians(degree), radius, false);
+
+                    Bukkit.getServer().getConsoleSender().sendMessage(Double.toString(degree));
 
                     Location loc = killAuraHacker.getLocation().add(x, 2.1, y);
 
                     bot.teleport(loc, PlayerTeleportEvent.TeleportCause.PLUGIN);
 
-                    if(radial >= 360)
-                        radial = 0;
+                    if(degree >= 360)
+                        degree = 0;
 
-                    radial++;
+                    degree = degree + 20;
 
                 }
 

@@ -18,16 +18,16 @@ public class permsHandler {
                     Player KillAuraHacker = Bukkit.getPlayer(args[0]);
                     return true;
                 }catch (Exception e){
-                    player.sendMessage(""+ color.colorTranslate(config.mainPrefix)+ ChatColor.RED + " That player isn't online!");
+                    player.sendMessage(""+ config.mainPrefix + ChatColor.RED + " That player isn't online!");
                     return false;
                 }
             }else{
-                player.sendMessage(""+ color.colorTranslate(config.mainPrefix)+ ChatColor.RED + " You need to parse the player!");
+                player.sendMessage(""+ config.mainPrefix+ ChatColor.RED + " You need to parse the player!");
                 return false;
             }
 
         }else{
-            player.sendMessage(""+ color.colorTranslate(config.mainPrefix)+ ChatColor.RED + " No permission!");
+            player.sendMessage(""+ config.mainPrefix + ChatColor.RED + " No permission!");
             return false;
         }
     }

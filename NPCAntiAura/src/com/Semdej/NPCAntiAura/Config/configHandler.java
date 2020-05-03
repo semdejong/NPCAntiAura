@@ -1,11 +1,14 @@
 package com.Semdej.NPCAntiAura.Config;
 
+import com.Semdej.NPCAntiAura.Handlers.colorTranslate;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
 public class configHandler {
+
+    colorTranslate color = new colorTranslate();
 
     //"NPCAntiAura.Main"
     //"NPCAntiAura.BotSettings"
@@ -17,7 +20,7 @@ public class configHandler {
     //Main
     public boolean mainEnabled = config.getBoolean("NPCAntiAura.Main.Enabled");
     public boolean mainProticollib = config.getBoolean("NPCAntiAura.Main.Proticollib");
-    public String mainPrefix = config.getString("NPCAntiAura.Main.Prefix");
+    public String mainPrefix = color.colorTranslate(config.getString("NPCAntiAura.Main.Prefix"));
     public String mainBotName = config.getString("NPCAntiAura.Main.BotName");
 
     //Punish

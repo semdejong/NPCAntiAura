@@ -1,21 +1,19 @@
 package com.Semdej.NPCAntiAura.Handlers;
 
 import com.Semdej.NPCAntiAura.Config.configHandler;
-import com.Semdej.NPCAntiAura.Holders.arrayListHolder;
-import com.Semdej.NPCAntiAura.Holders.hashMapHolder;
 import com.Semdej.NPCAntiAura.Main;
 import net.citizensnpcs.api.CitizensAPI;
 import net.citizensnpcs.api.npc.NPC;
 import net.citizensnpcs.api.npc.NPCRegistry;
 import org.bukkit.Location;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
 public class createBot {
-    hashMapHolder hashMaps = new hashMapHolder(); // Call it once.
+    configHandler config = new configHandler();
+
     private Main plugin;
 
     public createBot(Main pl){
@@ -36,12 +34,14 @@ public class createBot {
         if(Invisible)
             new setBotInvisible(plugin).setInvisible(hNpc.getEntity(), killAuraHacker);
 
-        if(hashMaps.playerBot.containsKey(playerUUID))
-            hashMaps.playerBot.remove(playerUUID);
+        if(plugin.playerBot.containsKey(playerUUID))
+            plugin.playerBot.remove(playerUUID);
 
-        hashMaps.playerBot.put(playerUUID, hNpc.getUniqueId());
+        plugin.playerBot.put(playerUUID, hNpc.getUniqueId());
 
-        new arrayListHolder().allNPCBots.add(hNpc.getUniqueId());
+        plugin.playerBot.put(playerUUID, hNpc.getUniqueId());
+
+        plugin.allNPCBots.add(hNpc.getUniqueId());
 
         return hNpc;
 

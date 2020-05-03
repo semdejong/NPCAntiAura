@@ -7,14 +7,19 @@ public class circularCoordinatesMath {
 
     public double X (double radial, double radius, boolean ccw){
 
-        if(ccw)
-            return -Math.cos(radial)*radius;
+        double returning = 0;
 
-        return Math.cos(radial)*radius;
+        if(ccw)
+            returning = -Math.cos(radial)*radius;
+
+        returning = Math.cos(radial)*radius;
+
+        return returning;
     }
 
     public double Y (double radial, double radius, boolean ccw){
-        return Math.sin(radial)*radius;
+        double returning = Math.sin(radial)*radius;
+        return returning;
     }
 
 
