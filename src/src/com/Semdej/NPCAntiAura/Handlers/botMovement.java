@@ -22,7 +22,7 @@ public class botMovement {
 
     public void botM(Player killAuraHacker, NPC bot, double radius, long speed, double time,  boolean ccw){
 
-        new BukkitRunnable() { //BukkitRunnable, not Runnable
+        new BukkitRunnable() {
 
             double radial = 1;
 

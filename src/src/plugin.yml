@@ -6,4 +6,5 @@ description: NPCAntiAura is a free to use/forkable plugin!
 depend: ["Citizens"]
 
 commands:
-
+  bot:
+    description: spawns a bot on a player!

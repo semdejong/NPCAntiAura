@@ -8,10 +8,12 @@ import java.util.UUID;
 public class hashMapHolder {
 
     public HashMap<UUID, UUID> playerBot;
+    public HashMap<UUID, Integer> hitBot;
 
     public void loadHashMaps(){
 
         playerBot = new HashMap<>();
+        hitBot = new HashMap<>();
 
     }
 
