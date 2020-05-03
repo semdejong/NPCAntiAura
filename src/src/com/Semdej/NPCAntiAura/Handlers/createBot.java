@@ -36,7 +36,7 @@ public class createBot {
         hNpc.spawn(loc);
 
         if(config.botSettingsSetInvisible)
-            new setBotInvisible(plugin).setInvisible(hNpc.getEntity());
+            new setBotInvisible(plugin).setInvisible(hNpc.getEntity(), killAuraHacker);
 
         if(hashMaps.playerBot.containsKey(playerUUID))
             hashMaps.playerBot.remove(playerUUID);
