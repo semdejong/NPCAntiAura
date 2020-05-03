@@ -1,0 +1,9 @@
+name: NPCAntiAura
+version: 1.0
+author: semdej
+main: com.Semdej.NPCAntiAura.Main
+description: NPCAntiAura is a free to use/forkable plugin!
+depend: ["Citizens"]
+
+commands:
+

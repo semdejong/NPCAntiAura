@@ -1,23 +1,30 @@
 package com.Semdej.NPCAntiAura.Config;
 
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
+import com.Semdej.NPCAntiAura.Main;
 
 public class setupConfig {
 
+    private Main plugin;
 
-    //config.set("NPCAntiAura", );
+    public setupConfig(Main pl) {
+        plugin = pl;
+    }
+    
 
-    public void setupConfig(FileConfiguration config){
-        config.set("NPCAntiAura.Main.Enabled", true);
-        config.set("NPCAntiAura.Main.Proticollib", false);
-        config.set("NPCAntiAura.BotSettings.Name", "semdej");
-        config.set("NPCAntiAura.BotSettings.SkinName", "semdej");
-        config.set("NPCAntiAura.BotSettings.UseArmour", true);
-        config.set("NPCAntiAura.BotSettings.RandomSwing", true);
-        config.set("NPCAntiAura.BotSettings.MoveDirection.Random", true);
-        config.set("NPCAntiAura.BotSettings.MoveDirection.ClockWise", false );
-        config.set("NPCAntiAura.BotSettings.MoveDirection.CounterClockWise", false );
+    //plugin.getConfig().set("NPCAntiAura", );
+
+    public void setupConfigs(){
+        plugin.getConfig().set("NPCAntiAura.Main.Enabled", true);
+        plugin.getConfig().set("NPCAntiAura.Main.Proticollib", false);
+        plugin.getConfig().set("NPCAntiAura.BotSettings.Name", "semdej");
+        plugin.getConfig().set("NPCAntiAura.BotSettings.SkinName", "semdej");
+        plugin.getConfig().set("NPCAntiAura.BotSettings.SetInvisible", true);
+        plugin.getConfig().set("NPCAntiAura.BotSettings.UseArmour", true);
+        plugin.getConfig().set("NPCAntiAura.BotSettings.RandomSwing", true);
+        plugin.getConfig().set("NPCAntiAura.BotSettings.MoveDirection.Random", true);
+        plugin.getConfig().set("NPCAntiAura.BotSettings.MoveDirection.ClockWise", false );
+        plugin.getConfig().set("NPCAntiAura.BotSettings.MoveDirection.CounterClockWise", false );
+        plugin.saveConfig();
         //more coming soon!
     }
 
