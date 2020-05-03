@@ -15,9 +15,10 @@ public class setBotInvisible {
         plugin = pl;
     }
 
-    public void setInvisible(Entity entity){
-        for (Player player : plugin.getServer().getOnlinePlayers()) {
-            entityHider.toggleEntity(player, entity);
+    public void setInvisible(Entity entity, Player player){
+        for (Player p : plugin.getServer().getOnlinePlayers()) {
+            if(p != player)
+                entityHider.toggleEntity(p, entity);
         }
     }
 
